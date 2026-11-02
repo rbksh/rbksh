@@ -25,8 +25,7 @@ SEED = 8                           # fixed, so the maze is identical on every re
 
 FLOOD, PATH_T, HOLD, FADE = 9.0, 1.8, 6.0, 1.0
 INK, MUTED, BG, EMBER = "#ece6d9", "#8a8476", "#0a0a0b", "#ff6a3d"
-STOPS = [(0, (255, 236, 205)), (.12, (255, 154, 92)), (.35, (232, 84, 52)),
-         (.62, (140, 42, 70)), (1, (46, 24, 52))]
+STOPS = [(0, (84, 81, 74)), (1, (30, 29, 27))]   # one neutral ramp: near = lighter, far = darker
 
 
 def cmap(t):
@@ -126,7 +125,7 @@ def main():
         col = cmap(d / maxd)
         o.append(f'<path d="{runs(layers[d])}" fill="{col}" opacity="0">'
                  f'<animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;{k(t)};{k(t + .02)};{end_vis};1" {anim}/>'
-                 f'<animate attributeName="fill" values="#fff8ee;#fff8ee;{col};{col}" keyTimes="0;{k(t)};{k(t + .5)};1" {anim}/></path>')
+                 f'<animate attributeName="fill" values="{INK};{INK};{col};{col}" keyTimes="0;{k(t)};{k(t + .5)};1" {anim}/></path>')
     o.append("</g>")
 
     # the name: same colour as empty board (invisible) until the flood exposes it, then lit, then it lights up
