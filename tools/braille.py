@@ -28,7 +28,7 @@ def main():
     o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" font-family="Plex,ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">', "<style>" + FONTCSS + "</style>",
          '<defs><filter id="g" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>',
          f'<rect width="{W}" height="{H}" rx="18" fill="#070a12"/>',
-         f'<text x="28" y="30" fill="#475569" font-size="12">// this line is Braille. each cell buzzes the way HaptiBraille vibrates your phone</text>']
+         f'<text x="28" y="30" fill="#475569" font-size="12">braille, decoded one cell at a time, the way HaptiBraille reads text out through vibration</text>']
     for i, ch in enumerate(TEXT):
         cx = x0 + i * cw
         t = i * STEP / cycle                        # moment this cell is "felt"

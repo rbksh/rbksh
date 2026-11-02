@@ -56,7 +56,7 @@ def main():
 <clipPath id="reveal"><rect x="%d" y="0" width="0" height="%d"><animate attributeName="width" from="0" to="%d" dur="%ss" repeatCount="indefinite"/></rect></clipPath></defs>"""
          % (PLOT[0], H, PLOT[2] - PLOT[0], DUR),
          f'<rect width="{W}" height="{H}" rx="18" fill="url(#bg)"/>',
-         f'<text x="520" y="40" fill="#64748b" font-size="13">// 5 double pendulums, released 0.0001 rad apart</text>']
+         f'<text x="520" y="40" fill="#64748b" font-size="13">5 double pendulums, released 0.0001 rad apart</text>']
 
     # whole scene loops with a soft fade so the restart is not a jump
     o.append(f'<g><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.03;.96;1" dur="{DUR}s" repeatCount="indefinite"/>')
@@ -99,8 +99,8 @@ def main():
         o.append(f'<path d="M' + " ".join(f"{f(x)},{f(y)}" for x, y in zip(xs, ys)) + f'" stroke="{col}" stroke-opacity=".85"/>')
     o.append("</g></g>")
 
-    o.append(f'<text x="520" y="{H - 44}" fill="#cbd5e1" font-size="14">Deterministic ≠ predictable.</text>'
-             f'<text x="520" y="{H - 24}" fill="#64748b" font-size="12">same reason a coin toss looks random → Dynamic-Coin-Toss</text>')
+    o.append(f'<text x="520" y="{H - 44}" fill="#cbd5e1" font-size="14">Same physics, starting angles 0.0001 rad apart.</text>'
+             f'<text x="520" y="{H - 24}" fill="#64748b" font-size="12">this is why I modelled a coin toss: Dynamic-Coin-Toss</text>')
     o.append("</svg>")
     open(OUT, "w", encoding="utf-8").write("\n".join(o))
     sep = [np.max(np.abs(np.array([r[i, 2] for r in runs]) - runs[0][i, 2])) for i in range(n)]
