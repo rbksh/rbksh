@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/rbksh?tab=repositories"><img src="assets/orbit.svg" width="100%" alt="Shesh Shiromani at the centre of a planetary system where every planet is one of my public repositories"></a>
+  <a href="https://codeforces.com/profile/shesh08"><img src="assets/bfs.svg" width="100%" alt="A breadth-first search floods a grid whose walls spell Shesh Shiromani, then traces the shortest path around the name"></a>
 </p>
 
 <p align="center">
@@ -8,7 +8,7 @@
   <a href="https://codeforces.com/profile/shesh08"><img src="https://img.shields.io/badge/codeforces-shesh08-0a0a0b?style=flat-square&logo=codeforces&logoColor=ff6a3d&labelColor=0a0a0b&color=ff6a3d" alt="codeforces"></a>
 </p>
 
-Every planet above is one of my public repos, pulled from the GitHub API. Older repos orbit farther out, bigger repos are bigger planets, and the colour is the main language. Orbital periods follow Kepler's third law, and anything I pushed to in the last two weeks glows. A GitHub Action rebuilds it every morning, so a new repo shows up as a new planet the next day ([`tools/orbit.py`](tools/orbit.py)).
+The banner above is a real BFS. My name is part of the wall, along with 15% random noise. The flood starts from the left edge, and each cell lights up the moment it's discovered, colored by its distance. Once it's done, the shortest path to the right edge is traced. The caption numbers come from that run ([`tools/bfs.py`](tools/bfs.py)).
 
 I study Computer Science at **BITS Pilani**, and before that I was at **DPS RK Puram**. I'm into Machine Learning, Competitive Programming, Calculus and Theoretical Physics, and I like problems where a clean model turns into surprising behaviour.
 
@@ -22,14 +22,6 @@ I study Computer Science at **BITS Pilani**, and before that I was at **DPS RK P
 | **[benchrank](https://github.com/rbksh/benchrank)** | Low-latency trading infra and a distributed benchmarking platform for high-concurrency load (IICPC hackathon). |
 | **[colonel-blotto-s-game](https://github.com/rbksh/colonel-blotto-s-game)** | Colonel Blotto simulator with evolution analytics, equilibrium search and tournaments. |
 | **[Nomex](https://github.com/rbksh/Nomex)** | IUPAC name generator and checker for students working through organic chemistry. |
-
-### Chaos, briefly
-
-<p align="center">
-  <a href="https://github.com/rbksh/Dynamic-Coin-Toss"><img src="assets/chaos.svg" width="100%" alt="Five double pendulums starting 0.0001 rad apart, diverging over time"></a>
-</p>
-
-These five pendulums start 0.0001 rad apart. They move as one for about six seconds, then the tiny difference blows up. The physics is integrated with RK4 in [`tools/chaos.py`](tools/chaos.py) and replayed frame by frame in pure SVG.
 
 <p align="center">
   <a href="https://github.com/rbksh/HaptiBraille"><img src="assets/braille.svg" width="100%" alt="'thanks for reading' in Braille, decoding cell by cell"></a>

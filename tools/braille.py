@@ -3,9 +3,7 @@ cell (like HaptiBraille's haptic pulses) and decodes into text as it goes."""
 import sys
 from webfont import face
 
-FONTCSS = (face('Plex', 'IBMPlexMono-Regular.ttf', ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~·→≠—')
-           + face('StixI', 'STIXTwoText-Italic.ttf', 'θ')
-           + ".si{font-family:StixI,'Cambria Math',serif;font-style:italic}")
+FONTCSS = (face('Plex', 'IBMPlexMono-Regular.ttf', ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~·→≠—'))
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "assets/braille.svg"
 TEXT = sys.argv[2] if len(sys.argv) > 2 else "thanks for reading"
