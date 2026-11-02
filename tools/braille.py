@@ -1,6 +1,11 @@
 """Generate assets/braille.svg: a sentence in Braille that 'vibrates' cell by
 cell (like HaptiBraille's haptic pulses) and decodes into text as it goes."""
 import sys
+from webfont import face
+
+FONTCSS = (face('Plex', 'IBMPlexMono-Regular.ttf', ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~·→≠—')
+           + face('StixI', 'STIXTwoText-Italic.ttf', 'θ')
+           + ".si{font-family:StixI,'Cambria Math',serif;font-style:italic}")
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "assets/braille.svg"
 TEXT = sys.argv[2] if len(sys.argv) > 2 else "thanks for reading"
@@ -20,7 +25,7 @@ def main():
     cycle = n * STEP + HOLD
     cw, gap = 38, 14              # cell pitch, dot pitch
     x0 = (W - (n - 1) * cw - gap) / 2
-    o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">',
+    o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" font-family="Plex,ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">', "<style>" + FONTCSS + "</style>",
          '<defs><filter id="g" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>',
          f'<rect width="{W}" height="{H}" rx="18" fill="#070a12"/>',
          f'<text x="28" y="30" fill="#475569" font-size="12">// this line is Braille. each cell buzzes the way HaptiBraille vibrates your phone</text>']

@@ -2,6 +2,11 @@
 by 1e-4 rad. They begin as one, then the butterfly effect tears them apart.
 Physics is integrated here (RK4); the SVG just replays it with SMIL."""
 import sys
+from webfont import face
+
+FONTCSS = (face('Plex', 'IBMPlexMono-Regular.ttf', ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~·→≠—')
+           + face('StixI', 'STIXTwoText-Italic.ttf', 'θ')
+           + ".si{font-family:StixI,'Cambria Math',serif;font-style:italic}")
 import numpy as np
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "assets/chaos.svg"
@@ -45,13 +50,13 @@ def main():
     runs = [simulate(base1 + i * EPS, base2) for i in range(len(COLORS))]
     n = len(runs[0])
     kt = ";".join(f"{i / (n - 1):.4f}" for i in range(n))
-    o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">',
+    o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" font-family="Plex,ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">', "<style>" + FONTCSS + "</style>",
          """<defs><radialGradient id="bg" cx=".3" cy=".4" r=".9"><stop offset="0" stop-color="#111a2e"/><stop offset="1" stop-color="#05070d"/></radialGradient>
 <filter id="g" x="-50%%" y="-50%%" width="200%%" height="200%%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <clipPath id="reveal"><rect x="%d" y="0" width="0" height="%d"><animate attributeName="width" from="0" to="%d" dur="%ss" repeatCount="indefinite"/></rect></clipPath></defs>"""
          % (PLOT[0], H, PLOT[2] - PLOT[0], DUR),
          f'<rect width="{W}" height="{H}" rx="18" fill="url(#bg)"/>',
-         f'<text x="520" y="40" fill="#64748b" font-size="13">// 5 double pendulums. starting angles differ by 0.0001 rad</text>']
+         f'<text x="520" y="40" fill="#64748b" font-size="13">// 5 double pendulums, released 0.0001 rad apart</text>']
 
     # whole scene loops with a soft fade so the restart is not a jump
     o.append(f'<g><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.03;.96;1" dur="{DUR}s" repeatCount="indefinite"/>')
@@ -82,7 +87,7 @@ def main():
     # theta_2(t) plot, revealed in sync
     x0, y0, x1, y1 = PLOT
     o.append(f'<rect x="{x0}" y="{y0}" width="{x1 - x0}" height="{y1 - y0}" fill="none" stroke="#1e293b"/>'
-             f'<text x="{x0}" y="{y0 - 10}" fill="#64748b" font-size="12">θ₂(t) — same start, different futures</text>'
+             f'<text x="{x0}" y="{y0 - 10}" fill="#64748b" font-size="12"><tspan class="si" font-size="15" fill="#cbd5e1">θ</tspan><tspan font-size="9" dy="3">2</tspan><tspan dy="-3">(t) — same start, different futures</tspan></text>'
              f'<text x="{x1}" y="{y1 + 18}" text-anchor="end" fill="#475569" font-size="11">t = {int(DUR)}s</text>'
              f'<text x="{x0}" y="{y1 + 18}" fill="#475569" font-size="11">t = 0</text>')
     allc = np.concatenate([np.cos(r[:, 2]) * 0 + r[:, 2] for r in runs])

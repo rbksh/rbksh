@@ -3,15 +3,14 @@
 </p>
 
 <p align="center">
-  <a href="https://rbksh.vercel.app/"><img src="https://img.shields.io/badge/portfolio-rbksh.vercel.app-0b1220?style=flat-square&labelColor=0b1220&color=5eead4" alt="portfolio"></a>
-  <a href="https://www.linkedin.com/in/shesh08/"><img src="https://img.shields.io/badge/linkedin-shesh08-0b1220?style=flat-square&labelColor=0b1220&color=818cf8" alt="linkedin"></a>
-  <a href="https://substack.com/@rbksh"><img src="https://img.shields.io/badge/substack-@rbksh-0b1220?style=flat-square&labelColor=0b1220&color=f472b6" alt="substack"></a>
-  <a href="https://monkeytype.com/profile/Shesh08"><img src="https://img.shields.io/badge/monkeytype-Shesh08-0b1220?style=flat-square&labelColor=0b1220&color=fbbf24" alt="monkeytype"></a>
+  <a href="https://rbksh.vercel.app/"><img src="https://img.shields.io/badge/portfolio-rbksh.vercel.app-0a0a0b?style=flat-square&labelColor=0a0a0b&color=ece6d9" alt="portfolio"></a>
+  <a href="https://www.linkedin.com/in/shesh08/"><img src="https://img.shields.io/badge/linkedin-shesh08-0a0a0b?style=flat-square&logo=linkedin&logoColor=ece6d9&labelColor=0a0a0b&color=ece6d9" alt="linkedin"></a>
+  <a href="https://codeforces.com/profile/shesh08"><img src="https://img.shields.io/badge/codeforces-shesh08-0a0a0b?style=flat-square&logo=codeforces&logoColor=ff6a3d&labelColor=0a0a0b&color=ff6a3d" alt="codeforces"></a>
 </p>
 
 The animation above isn't a GIF or a font trick. My name was sampled into 4,096 points and run through a discrete Fourier transform. The 260 largest terms became 260 circles, each one spinning at its own integer frequency. Stack them tip to tail and the last one writes my name. The math is in [`tools/fourier.py`](tools/fourier.py).
 
-I study CS at **BITS Pilani / SST** and I'm based in Bengaluru. I like problems where a clean model turns into surprising behaviour: algorithms, ML, calculus, statistics, and theoretical physics.
+I study Computer Science at **BITS Pilani**, and before that I was at **DPS RK Puram**. I'm into Machine Learning, Competitive Programming, Calculus and Theoretical Physics, and I like problems where a clean model turns into surprising behaviour.
 
 ### Things I've built
 
